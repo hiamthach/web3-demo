@@ -1,14 +1,50 @@
-import React from 'react';
+'use client';
 
-import Btn from '@/components/shared/Btn/Btn';
+import { useEffect, useState } from 'react';
 
-const HomeHero = () => {
+import { Card } from '@/components/shared/Card';
+
+import { hooks, metaMask } from '@/config/connectors/metaMask';
+
+const {
+  useChainId,
+  useAccounts,
+  useIsActivating,
+  useIsActive,
+  useProvider,
+  useENSNames,
+} = hooks;
+
+export default function MetaMaskCard() {
+  const chainId = useChainId();
+  const accounts = useAccounts();
+  const isActivating = useIsActivating();
+
+  const isActive = useIsActive();
+
+  const provider = useProvider();
+  const ENSNames = useENSNames(provider);
+
+  const [error, setError] = useState<Error | undefined>(undefined);
+
+  // attempt to connect eagerly on mount
+  useEffect(() => {
+    void metaMask.connectEagerly().catch(() => {
+      console.debug('Failed to connect eagerly to metamask');
+    });
+  }, []);
+
   return (
-    <div>
-      <h2>HomeHero</h2>
-      <Btn>Button</Btn>
-    </div>
+    <Card
+      connector={metaMask}
+      activeChainId={chainId}
+      isActivating={isActivating}
+      isActive={isActive}
+      error={error}
+      setError={setError}
+      accounts={accounts}
+      provider={provider}
+      ENSNames={ENSNames}
+    />
   );
-};
-
-export default HomeHero;
+}

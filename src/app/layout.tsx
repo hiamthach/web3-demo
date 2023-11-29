@@ -10,8 +10,8 @@ import '@/styles/globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'NextJS + Antd Starter',
-  description: 'NextJS + Antd Boilerplate',
+  title: 'Web3 Demo',
+  description: 'Web3 Demo',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
