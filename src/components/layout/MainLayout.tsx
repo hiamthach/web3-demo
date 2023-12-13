@@ -5,9 +5,9 @@ import Header from './Header';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="min-h-screen">
+    <main className="bg-neutral-800 text-neutral-300">
       <Header />
-      {children}
+      <div className="min-h-screen">{children}</div>
       <Footer />
     </main>
   );

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer utilities {
+  .fluid-container {
+    @apply mx-auto w-[90vw] max-w-[1317px];
+  }
+  .gradient-text {
+    -webkit-text-fill-color: transparent;
+    @apply bg-btn-gradient bg-clip-text text-primary;
+  }
+  .position-center {
+    @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+  }
+}
