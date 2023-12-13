@@ -1,20 +1,17 @@
 'use client';
 
-import { Web3ReactHooks, Web3ReactProvider } from '@web3-react/core';
-import type { MetaMask } from '@web3-react/metamask';
 import { Toaster } from 'react-hot-toast';
 
-import { metaMask, hooks as metaMaskHooks } from '@/config/connectors/metaMask';
-import { TOAST_DEFAULT_OPTIONS } from '@/config/helpers/toast.helper';
+import { Web3Modal } from '@/components/shared/Web3Modal';
 
-const connectors: [MetaMask, Web3ReactHooks][] = [[metaMask, metaMaskHooks]];
+import { TOAST_DEFAULT_OPTIONS } from '@/config/helpers/toast.helper';
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <Web3Modal>
       {children}
       <Toaster {...TOAST_DEFAULT_OPTIONS} />
-    </>
+    </Web3Modal>
   );
 };
 
