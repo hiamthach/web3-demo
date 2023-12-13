@@ -13,6 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'btn-gradient': 'linear-gradient(45deg, #AC50EF, #7059FB 50%, #2ECFF6)',
+        'pattern-lg': 'url("/bg-pattern-lg.png")',
       },
       colors: {
         primary: '#6248ff',
