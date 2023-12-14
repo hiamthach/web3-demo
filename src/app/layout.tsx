@@ -7,7 +7,10 @@ import AppProvider from './providers';
 
 import '@/styles/globals.css';
 
-const sans = Onest({ subsets: ['latin'] });
+const sans = Onest({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '500', '600', '700', '800', '900'],
+});
 
 export const metadata: Metadata = {
   title: 'Web3 Demo',

@@ -82,6 +82,9 @@ const config: Config = {
         center: true,
         padding: '24px',
       },
+      fontFamily: {
+        sans: ['Onest', 'sans-serif'],
+      },
     },
   },
   plugins: [],
